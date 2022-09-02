@@ -1,0 +1,56 @@
+! ----------------------------------------
+! Date        Contributor    Description
+! 9/02/2022   Darius         Initial List
+!
+!-----------------------------------------
+
+! Some Git Help:
+
+! Making a branch:
+    git checkout -b <name of your branch>
+    
+! Changing branches:
+    git checkout     <name of branch>
+    
+! Making changes:
+    1. Add modified file to staging area
+    git add  <name of your file> 
+    or (to add all modified files)
+    git add .   
+    
+    1.a. (optional) Take a look at the staging area
+    git status
+    
+    2. Commit your changes (make a checkpoint)
+    git commit -m "write your message"
+    
+    3. Publish your local commits to the remote
+    git push 
+    
+    3.a (optional) Look at the staging area to make sure things are 
+    git status
+    
+    
+! Getting other people's changes:
+    git pull origin main
+    
+! Merge conflict:
+    1. Manuallty change your file(s) on the lines that conflict 
+    
+    2. Add the changes to the staging area 
+    git add .
+    
+    3. Commit the changes 
+    git commit -m "message"
+    
+    4. git push 
+    
+! Add branch to remote:
+    git push --set-upstream <where> <which branch>
+    
+    git push --set-upstream origin testBranch
+    
+! Push branch to remote:
+    git push <where> <which branch>
+    
+    git push origin testBranch

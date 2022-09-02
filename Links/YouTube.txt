@@ -7,51 +7,51 @@
 ! 9/02/2022   Darius         Initial List
 !
 !-----------------------------------------
-!
-!
+
+
 ! --------------------- BPS.Space ---------------------
 ! Space-X like Rocket Landing
-!	https://www.youtube.com/watch?v=SH3lR2GLgT0&t=82s 
-!
+	https://www.youtube.com/watch?v=SH3lR2GLgT0&t=82s 
+
 ! TVC Model Rocket (Conference)
-!	https://www.youtube.com/watch?v=4cw9K9yuIyU
-!
+	https://www.youtube.com/watch?v=4cw9K9yuIyU
+
 ! Model Rocket Series
-!	https://www.youtube.com/playlist?list=PLyV774-3p8348Fl5V6ciIBh0ZA446q93I 
-!
-!
-!
-!
+	https://www.youtube.com/playlist?list=PLyV774-3p8348Fl5V6ciIBh0ZA446q93I 
+
+
+
+
 ! --------------------- AeroAcademy ---------------------
 ! Aerodynamics
-!	https://www.youtube.com/playlist?list=PLIwDIOqR-ET3ZDLDHXiIwyW-Lzvr5coc_
-!
+	https://www.youtube.com/playlist?list=PLIwDIOqR-ET3ZDLDHXiIwyW-Lzvr5coc_
+
 ! Flight Simulation
-!	https://www.youtube.com/playlist?list=PLIwDIOqR-ET0kKguPqG-2CBQyZdG7Ck9r
-!
+	https://www.youtube.com/playlist?list=PLIwDIOqR-ET0kKguPqG-2CBQyZdG7Ck9r
+
 ! Aircraft Dynamics
-!	https://www.youtube.com/playlist?list=PLIwDIOqR-ET0ga6n9ch2SaQjgzJLZdxa2
-!
-!
-!
-!
+	https://www.youtube.com/playlist?list=PLIwDIOqR-ET0ga6n9ch2SaQjgzJLZdxa2
+
+
+
+
 ! --------------------- VD Engineering ---------------------
 ! Flight Simulation
-!	https://www.youtube.com/watch?v=jI0eWIgXsT4
-!
+	https://www.youtube.com/watch?v=jI0eWIgXsT4
+
 ! Nozzle Analysis
-!	https://www.youtube.com/watch?v=qPYso99wMyw
-!
-!
-!
-!
+	https://www.youtube.com/watch?v=qPYso99wMyw
+
+
+
+
 ! --------------------- Phil's Lab ---------------------
 ! Program Microcontroller
-!	https://www.youtube.com/watch?v=_JQAve05o_0
-!
-!
-!
-!
+	https://www.youtube.com/watch?v=_JQAve05o_0
+
+
+
+
 !--------------------- Tech With Tim ---------------------
 ! Git Fundamentals
-!   https://www.youtube.com/watch?v=DVRQoVRzMIY
+   https://www.youtube.com/watch?v=DVRQoVRzMIY
