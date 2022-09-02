@@ -7,8 +7,8 @@
 ! 9/02/2022   Darius         Initial List
 !
 !-----------------------------------------
-!
-!
+
+
 ! --------------------- BPS.Space ---------------------
 ! Space-X like Rocket Landing
 !	https://www.youtube.com/watch?v=SH3lR2GLgT0&t=82s 
@@ -18,10 +18,10 @@
 !
 ! Model Rocket Series
 !	https://www.youtube.com/playlist?list=PLyV774-3p8348Fl5V6ciIBh0ZA446q93I 
-!
-!
-!
-!
+
+
+
+
 ! --------------------- AeroAcademy ---------------------
 ! Aerodynamics
 !	https://www.youtube.com/playlist?list=PLIwDIOqR-ET3ZDLDHXiIwyW-Lzvr5coc_
@@ -31,20 +31,20 @@
 !
 ! Aircraft Dynamics
 !	https://www.youtube.com/playlist?list=PLIwDIOqR-ET0ga6n9ch2SaQjgzJLZdxa2
-!
-!
-!
-!
+
+
+
+
 ! --------------------- VD Engineering ---------------------
 ! Flight Simulation
 !	https://www.youtube.com/watch?v=jI0eWIgXsT4
 !
 ! Nozzle Analysis
 !	https://www.youtube.com/watch?v=qPYso99wMyw
-!
-!
-!
-!
+
+
+
+
 ! --------------------- Phil's Lab ---------------------
 ! Program Microcontroller
 !	https://www.youtube.com/watch?v=_JQAve05o_0
