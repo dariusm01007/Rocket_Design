@@ -1,0 +1,13 @@
+! This is a list of useful websites for parts, feel free to add
+! to the list
+!
+! ----------------------------------------
+! Date        Contributor    Description
+! 9/02/2022   Darius         Initial List
+!
+! ----------------------------------------
+!
+!
+! ---------- Apogee Components ----------
+! https://www.apogeerockets.com/
+!
