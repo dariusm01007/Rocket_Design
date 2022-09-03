@@ -1,0 +1,8 @@
+! ----------------------------------------
+! Date        Contributor    Description
+! 9/03/2022   Darius         Initial List
+!
+!-----------------------------------------
+
+! Beginner's Guide to Model Rockets
+    https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/shortr.html
