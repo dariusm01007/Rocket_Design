@@ -51,7 +51,7 @@ def EulerKinematic(angles, BodyRate):
         roll  = angles[0].item()
         pitch = angles[1].item()
         
-        # cos(pitch) == 90 -> Gimbal Lock
+        # pitch == 90 -> Gimbal Lock
         # 1/cos(90) = undefined
         
         R = np.array([[1, np.sin(roll)*np.tan(pitch), np.cos(roll)*np.tan(pitch)], 
