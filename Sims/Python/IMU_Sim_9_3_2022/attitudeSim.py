@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from mathUtilities import deg2rad, EulerKinematic, rad2deg, Inertial2Body
+import random
+from mathUtilities import deg2rad, EulerKinematic, rad2deg, Inertial2Body, Body2Inertial, \
+IMU_AttitudeUpdate
 
 # Initial Orientation
 roll  = deg2rad(10) # [deg]
@@ -30,6 +32,7 @@ r_array  = np.zeros(arrayLength)
 time     = np.zeros(arrayLength)
 
 g_vector = np.zeros((arrayLength,3))
+dcm_int = np.zeros((arrayLength,3))
 
 angles = np.array([[roll],
                    [pitch],
@@ -46,7 +49,7 @@ accel2G = lambda a : a/9.81
  
 for idx in range (0,arrayLength):
     
-    # Simulating Gyroscope (no noise, bias, drift, etc...)
+    # Simulating Rotating Body
     if t <= 5.0:
         
         # Not rolling
@@ -118,32 +121,65 @@ for idx in range (0,arrayLength):
     psiDot[idx]   = rad2deg(AttitudeRates[2].item())
     time[idx]     = t
     
+    # Using Euler angles for calculations
+    roll  = angles[0].item()
+    pitch = angles[1].item()
+    yaw   = angles[2].item()
+    
+    # Making sure to have the right values for the IMU based attitude
+    # in the beginning
+    if t < 1.0:
+        rollEst  = roll
+        pitchEst = pitch
+        yawEst   = yaw
+    
     # Simulating accelerometer (no external acceleration, noise, etc...)
     # Storing gravity components in the body frame
-    g_vector[idx, :] = np.transpose((Inertial2Body(phi[idx], theta[idx], psi[idx])@gravity))
+    g_vector[idx, :] = np.transpose((Inertial2Body(roll, pitch, yaw)@gravity))
+    
+    # Simulating gyroscope with noise and doing attitude update
+    the_dcm    = Body2Inertial(rollEst, pitchEst, yawEst)
+    noise      = 0.002*random.random()
+    bias       = 0.0001
+    #Gyro      = BodyRates + noise + bias 
+    Gyro       = BodyRates
+    IMU_angles = IMU_AttitudeUpdate(the_dcm, Gyro, dt)
+    
+    # Storing data
+    dcm_int[idx, :] = np.transpose(IMU_angles)
+    
+    rollEst  = deg2rad(IMU_angles[0].item())
+    pitchEst = deg2rad(IMU_angles[1].item())
+    yawEst   = deg2rad(IMU_angles[2].item())
 
 # Plotting values
 plt.figure(1)
-plt.plot(time, phi)
+plt.plot(time, phi, label = 'Truth')
+plt.plot(time, dcm_int[:,0], '--r', label = 'Estimate')
 plt.ylabel('Angle [deg]')
 plt.xlabel('Time [s]')
 plt.title('Roll Angle')
+plt.legend()
 plt.grid()
 plt.show()
 
 plt.figure(2)
-plt.plot(time, theta)
+plt.plot(time, theta, label = 'Truth')
+plt.plot(time, dcm_int[:,1], '--r', label = 'Estimate')
 plt.ylabel('Angle [deg]')
 plt.xlabel('Time [s]')
 plt.title('Pitch Angle')
+plt.legend()
 plt.grid()
 plt.show()
 
 plt.figure(3)
-plt.plot(time, psi)
+plt.plot(time, psi, label = 'Truth')
+plt.plot(time, dcm_int[:,2], '--r', label = 'Estimate')
 plt.ylabel('Angle [deg]')
 plt.xlabel('Time [s]')
 plt.title('Yaw Angle')
+plt.legend()
 plt.grid()
 plt.show()
 
