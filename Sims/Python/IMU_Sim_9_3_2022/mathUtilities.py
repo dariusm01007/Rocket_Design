@@ -56,7 +56,7 @@ def EulerKinematic(angles, BodyRate):
     # 1/cos(90) = undefined
     
     R = np.array([[1, np.sin(roll)*np.tan(pitch), np.cos(roll)*np.tan(pitch)], 
-                  [0, np.cos(pitch), -np.sin(pitch)],
+                  [0, np.cos(roll), -np.sin(roll)],
                   [0, np.sin(roll)/np.cos(pitch), np.cos(roll)/np.cos(pitch)]])
     
     # Body Rates [p,q,r].' from the gyroscope
