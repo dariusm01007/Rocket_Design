@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 from mathUtilities import deg2rad, EulerKinematic, rad2deg, Inertial2Body, Body2Inertial, \
-IMU_AttitudeUpdate
+IMU_AttitudeUpdate, tiltAngles
 
 # Initial Orientation
 roll  = deg2rad(10) # [deg]
@@ -33,6 +33,8 @@ time     = np.zeros(arrayLength)
 
 g_vector = np.zeros((arrayLength,3))
 dcm_int = np.zeros((arrayLength,3))
+
+accelAngles = np.zeros((arrayLength,2))
 
 angles = np.array([[roll],
                    [pitch],
@@ -135,7 +137,9 @@ for idx in range (0,arrayLength):
     
     # Simulating accelerometer (no external acceleration, noise, etc...)
     # Storing gravity components in the body frame
-    g_vector[idx, :] = np.transpose((Inertial2Body(roll, pitch, yaw)@gravity))
+    g_vector[idx, :] = np.transpose((Inertial2Body(rollEst, pitchEst, yawEst)@gravity))
+    
+    accelAngles[idx, :] = np.transpose(tiltAngles(g_vector[idx, :]))
     
     # Simulating gyroscope with noise and doing attitude update
     the_dcm    = Body2Inertial(rollEst, pitchEst, yawEst)
@@ -154,8 +158,8 @@ for idx in range (0,arrayLength):
 
 # Plotting values
 plt.figure(1)
-plt.plot(time, phi, label = 'Truth')
-plt.plot(time, dcm_int[:,0], '--r', label = 'Estimate')
+plt.plot(time, phi, label = 'Euler Kinematic')
+plt.plot(time, dcm_int[:,0], '--r', label = 'Integrate DCM')
 plt.ylabel('Angle [deg]')
 plt.xlabel('Time [s]')
 plt.title('Roll Angle')
@@ -164,8 +168,8 @@ plt.grid()
 plt.show()
 
 plt.figure(2)
-plt.plot(time, theta, label = 'Truth')
-plt.plot(time, dcm_int[:,1], '--r', label = 'Estimate')
+plt.plot(time, theta, label = 'Euler Kinematic')
+plt.plot(time, dcm_int[:,1], '--r', label = 'Integrate DCM')
 plt.ylabel('Angle [deg]')
 plt.xlabel('Time [s]')
 plt.title('Pitch Angle')
@@ -174,8 +178,8 @@ plt.grid()
 plt.show()
 
 plt.figure(3)
-plt.plot(time, psi, label = 'Truth')
-plt.plot(time, dcm_int[:,2], '--r', label = 'Estimate')
+plt.plot(time, psi, label = 'Euler Kinematic')
+plt.plot(time, dcm_int[:,2], '--r', label = 'Integrate DCM')
 plt.ylabel('Angle [deg]')
 plt.xlabel('Time [s]')
 plt.title('Yaw Angle')
@@ -238,3 +242,20 @@ plt.xlabel('Time [s]')
 plt.title('Z-Axis Acceleration due to gravity')
 plt.grid()
 plt.show()
+
+# # Plotting Euler angles from accelerometer
+# plt.figure(10)
+# plt.plot(time, accelAngles[:,0])
+# plt.ylabel('Angle [deg]')
+# plt.xlabel('Time [s]')
+# plt.title('Roll Angle from Accelerometer')
+# plt.grid()
+# plt.show()
+
+# plt.figure(11)
+# plt.plot(time, accelAngles[:,1])
+# plt.ylabel('Angle [deg]')
+# plt.xlabel('Time [s]')
+# plt.title('Pitch Angle from Accelerometer')
+# plt.grid()
+# plt.show()
