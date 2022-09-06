@@ -93,3 +93,23 @@ def IMU_AttitudeUpdate(dcmOLD, Gyro, dt):
     return rad2deg(np.array([[phi],
                              [theta],
                              [psi]]))
+
+def tiltAngles(accel):
+    
+    # Creating a unit vector by dividing by the magnitude
+    unit_accel = accel * (1/np.linalg.norm(accel))
+    
+    # Components of the unit vector
+    ax = unit_accel[0].item()
+    ay = unit_accel[1].item()
+    az = unit_accel[2].item()
+    
+    # sqrt(ay^2 + az^2) = cos(pitch)
+    temp = np.linalg.norm([ay, az])
+    
+    # Orientation using acceleration measurements
+    roll  = math.atan2(ay, az)
+    pitch = math.atan2(-ax, temp)
+    
+    return rad2deg(np.array([[roll],
+                             [pitch]]))
