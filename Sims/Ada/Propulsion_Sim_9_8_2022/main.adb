@@ -112,7 +112,7 @@ begin
       end if;   
        
       -- Save the data
-      Put(File=> F, Item => t, Fore => 2, Aft =>4, Exp => 0); -- 2 spaces before decimal, 2 spaces after, no exponents
+      Put(File=> F, Item => t, Fore => 2, Aft =>4, Exp => 0); -- 2 spaces before decimal, 4 spaces after, no exponents
       Put(F,"   ");
       Put(File=> F, Item => z, Fore => 2, Aft =>4, Exp => 0);
       Put(F,"   ");
