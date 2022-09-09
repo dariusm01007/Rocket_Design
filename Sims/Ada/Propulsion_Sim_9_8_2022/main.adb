@@ -57,7 +57,7 @@ procedure Main is
 
 
    -- Drag Force
-   beta : float := 250.0; -- [N/m^2] ballistic coefficient
+   beta : float := 30.0; -- [N/m^2] ballistic coefficient
    Q    : float := dynamicPressure(z,V);
    Drag : float := (Q*g0)/beta;
 
